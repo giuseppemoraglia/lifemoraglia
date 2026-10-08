@@ -102,7 +102,7 @@ $('content').addEventListener('click',async e=>{const b=e.target.closest('[data-
  else if(action==='edit-north')showEditor('northStar');
  else if(action==='new-project')showEditor('projects',null,{goalId:b.dataset.goal,areaId:state.goals.find(g=>g.id===b.dataset.goal)?.areaId||''});
  else if(action==='journal-action'){const j=state.journals.find(v=>v.id===id);showEditor('actions',null,{name:j.action,sourceJournalId:j.id,notes:'Dalla riflessione: '+j.name});}
- else if(action==='new-action')showEditor('actions',null,{projectId:b.dataset.project||''});
+ else if(action==='new-action')showEditor('actions',null,{projectId:b.dataset.project||'',scheduledDate:section==='home'?localDate():''});
  else if(action==='today'){dailyDate=localDate();navigate('daily');}
  else if(action==='day'){dailyDate=b.dataset.date;render();}
  else if(action==='period-prev'||action==='period-next'||action==='period-today'){const current=action==='period-today',step=action==='period-prev'?-1:1;if(type==='daily')dailyDate=current?localDate():shiftDate(dailyDate,step);else if(type==='weekly')weeklyDate=current?weekStart(localDate(),state.settings.weekStart):shiftDate(weeklyDate,7*step);else{let value=type==='monthly'?monthlyDate:financeMonth;const d=new Date(value+'-01T12:00:00');d.setMonth(d.getMonth()+step);value=current?localDate().slice(0,7):localDate(d).slice(0,7);if(type==='monthly')monthlyDate=value;else financeMonth=value;}render();}
