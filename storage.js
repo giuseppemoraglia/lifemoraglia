@@ -1,0 +1,6 @@
+import {createState,migrateLegacy,validateState} from './domain.js';
+export const STORAGE_KEY='life-os:v2';
+export function openStore(storage){let state=createState(),baseline=null,writable=true,warning='';
+ try{baseline=storage.getItem(STORAGE_KEY);if(baseline){state=validateState(JSON.parse(baseline));}else{const old=storage.getItem('life-os:v1');if(old)state=migrateLegacy(state,JSON.parse(old));}}catch{writable=false;warning='Archivio non leggibile. Non verrà sovrascritto; puoi usare l’app in memoria ed esportare i dati.';}
+ return {get state(){return state;},get writable(){return writable;},warning,replace(next){state=next;},save(){if(!writable)return {ok:false,message:warning||'Modifiche solo in memoria. Esporta un backup prima di ricaricare.'};try{if(storage.getItem(STORAGE_KEY)!==baseline){writable=false;return {ok:false,message:'Dati modificati in un’altra scheda. Esporta le modifiche in memoria e ricarica prima di continuare.'};}const serialized=JSON.stringify(state);storage.setItem(STORAGE_KEY,serialized);baseline=serialized;return {ok:true,message:'Salvato · su questo browser'};}catch{return {ok:false,message:'Spazio o accesso al browser insufficiente. Modifiche in memoria: esporta un backup prima di ricaricare.'};}},block(){writable=false;}};
+}

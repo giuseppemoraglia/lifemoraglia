@@ -1,0 +1,2 @@
+export function nextDue(date,months){if(!date||!months)return '';const [y,m,d]=date.split('-').map(Number),first=new Date(y,m-1+Number(months),1,12),last=new Date(first.getFullYear(),first.getMonth()+1,0,12).getDate();return `${first.getFullYear()}-${String(first.getMonth()+1).padStart(2,'0')}-${String(Math.min(d,last)).padStart(2,'0')}`;}
+export function annualCost(bills){return bills.filter(b=>!b.archived&&b.amount!==''&&Number(b.interval)>0).reduce((sum,b)=>sum+Number(b.amount)*12/Number(b.interval),0);}
