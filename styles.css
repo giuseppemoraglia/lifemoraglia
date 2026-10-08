@@ -32,7 +32,7 @@
 #content:has(.daily-grid) .daily-grid .card>h2,#content:has(.daily-grid) .daily-grid .card>.hint,#content:has(.daily-grid) .daily-grid .card>.wide{grid-column:1/-1;margin:0}
 #content:has(.daily-grid) .form-grid{gap:12px}
 #content:has(.daily-grid) .form-grid>.wide{grid-column:auto}
-@media(min-width:1500px){#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(min-width:1800px){#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:1150px){#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){
 #content:has(.daily-grid) .heading h1{font-size:25px}
