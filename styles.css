@@ -4,3 +4,43 @@
 
 .small-stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}.money-summary{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:650px){.money-summary{grid-template-columns:1fr}}
 .google-item{padding:16px 0;border-bottom:1px solid var(--border,#ddd);overflow-wrap:anywhere}.google-item p{margin:6px 0;font-size:14px}.google-item .toolbar{margin-top:10px}
+
+/* Daily: compact forms, readable labels and comfortable touch targets. */
+#content:has(.daily-grid) .heading{margin:20px 0 16px;gap:16px}
+#content:has(.daily-grid) .heading h1{font-size:28px}
+#content:has(.daily-grid) .heading p{margin:6px 0 0}
+#content:has(.daily-grid) .day-top{padding:14px 18px;gap:24px;margin-bottom:14px;grid-template-columns:minmax(0,1fr) minmax(180px,.55fr)}
+#content:has(.daily-grid) .day-top h2{font-size:21px;margin:5px 0 10px}
+#content:has(.daily-grid) .week-strip{gap:8px}
+#content:has(.daily-grid) .week-strip button{min-height:44px;padding:5px 10px}
+#content:has(.daily-grid) .daily-score{padding-left:20px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-content:center}
+#content:has(.daily-grid) .daily-score strong{font-size:28px;margin:0;grid-column:2;grid-row:1/3}
+#content:has(.daily-grid) .daily-score p{margin:0;line-height:1.4}
+#content:has(.daily-grid) .daily-score .text-button{padding:0;min-height:32px}
+#content:has(.daily-grid) .card{padding:16px 18px;margin-bottom:14px;border-radius:10px}
+#content:has(.daily-grid) .card h2{font-size:17px;margin:0 0 6px}
+#content:has(.daily-grid) .hint{margin:0 0 10px;font-size:12px;line-height:1.4}
+#content:has(.daily-grid) .focus-card{gap:18px}
+#content:has(.daily-grid) .focus-content .form-grid{grid-template-columns:minmax(0,2fr) auto minmax(140px,1fr);align-items:end;gap:12px}
+#content:has(.daily-grid) .field{gap:4px;margin:0}
+#content:has(.daily-grid) .field input,#content:has(.daily-grid) .field select{font-size:15px;min-height:40px;padding:7px 10px}
+#content:has(.daily-grid) .field textarea{min-height:64px;height:64px;padding:8px 10px;font-size:14px}
+#content:has(.daily-grid) .field-error:empty{display:none}
+#content:has(.daily-grid) .check{margin:0;min-height:40px;gap:8px}
+#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px;align-items:start}
+#content:has(.daily-grid) .daily-grid .card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px;margin:0;align-content:start}
+#content:has(.daily-grid) .daily-grid .card>h2,#content:has(.daily-grid) .daily-grid .card>.hint,#content:has(.daily-grid) .daily-grid .card>.wide{grid-column:1/-1;margin:0}
+#content:has(.daily-grid) .form-grid{gap:12px}
+#content:has(.daily-grid) .form-grid>.wide{grid-column:auto}
+@media(min-width:1500px){#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:1150px){#content:has(.daily-grid) .daily-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+#content:has(.daily-grid) .heading h1{font-size:25px}
+#content:has(.daily-grid) .day-top{grid-template-columns:1fr;gap:12px;padding:14px}
+#content:has(.daily-grid) .daily-score{border-left:0;border-top:1px solid #ced9c4;padding:10px 0 0}
+#content:has(.daily-grid) .daily-grid{grid-template-columns:1fr}
+#content:has(.daily-grid) .focus-content .form-grid{grid-template-columns:1fr 1fr}
+#content:has(.daily-grid) .focus-content .form-grid>.field:first-child{grid-column:1/-1}
+#content:has(.daily-grid) .field input,#content:has(.daily-grid) .field select,#content:has(.daily-grid) .check{min-height:44px}
+#content:has(.daily-grid) .form-grid>.wide{grid-column:1/-1}
+}
